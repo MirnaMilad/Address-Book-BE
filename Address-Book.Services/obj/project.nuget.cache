@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t+4LqhtYhZc7qgGNhS7J9N6XQZxnD0XgYQDnjatq6U5rk6xhTun7Ph+2Nc+ye6LCT4NccDl4zIRZ2EpsHAM2WA==",
+  "dgSpecHash": "gM7A5YH8H1IR8dgHJ+w6h1h4uC4rg5aqfyNmIZZiKzCIro6eWyLp3BFL0mZXYncZw9neWFhXYq4oB2fq051amA==",
   "success": true,
-  "projectFilePath": "G:\\3 Pillars Task\\Address-book-BE.solution\\Address-Book.Services\\Address-Book.Services.csproj",
+  "projectFilePath": "G:\\3 Pillars Task\\Address-Book-BE\\Address-Book.Services\\Address-Book.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.25\\microsoft.aspnetcore.authentication.jwtbearer.6.0.25.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.25\\microsoft.aspnetcore.cryptography.internal.6.0.25.nupkg.sha512",

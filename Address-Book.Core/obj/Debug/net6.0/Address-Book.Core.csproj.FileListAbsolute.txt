@@ -10,3 +10,15 @@ G:\3 Pillars Task\Address-book-BE.solution\Address-Book.Core\obj\Debug\net6.0\Ad
 G:\3 Pillars Task\Address-book-BE.solution\Address-Book.Core\obj\Debug\net6.0\refint\Address-Book.Core.dll
 G:\3 Pillars Task\Address-book-BE.solution\Address-Book.Core\obj\Debug\net6.0\Address-Book.Core.pdb
 G:\3 Pillars Task\Address-book-BE.solution\Address-Book.Core\obj\Debug\net6.0\ref\Address-Book.Core.dll
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\bin\Debug\net6.0\Address-Book.Core.deps.json
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\bin\Debug\net6.0\Address-Book.Core.dll
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\bin\Debug\net6.0\Address-Book.Core.pdb
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\obj\Debug\net6.0\Address-Book.Core.csproj.AssemblyReference.cache
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\obj\Debug\net6.0\Address-Book.Core.GeneratedMSBuildEditorConfig.editorconfig
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\obj\Debug\net6.0\Address-Book.Core.AssemblyInfoInputs.cache
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\obj\Debug\net6.0\Address-Book.Core.AssemblyInfo.cs
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\obj\Debug\net6.0\Address-Book.Core.csproj.CoreCompileInputs.cache
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\obj\Debug\net6.0\Address-Book.Core.dll
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\obj\Debug\net6.0\refint\Address-Book.Core.dll
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\obj\Debug\net6.0\Address-Book.Core.pdb
+G:\3 Pillars Task\Address-Book-BE\Address-Book.Core\obj\Debug\net6.0\ref\Address-Book.Core.dll

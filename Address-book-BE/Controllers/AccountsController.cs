@@ -7,10 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Address_book_BE.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AccountController : ControllerBase
+{ 
+    public class AccountController : ApiBaseController
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;

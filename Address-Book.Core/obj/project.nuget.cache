@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M4k/V8sQCsBegBcps8NCs1dv0xR29rdsC/ApTa4RVQdMGV2uvOgYXDO6f+XTx2HreZbEs6Xp0K12FZh+/ZnhTA==",
+  "dgSpecHash": "ceIvMR2W0jb6xTMWpnIH9kvrhpEUnWlY+OZE2FpxYMMZvYMusXaNPfcyQ4QR92bBFvUDDAUvX0ztM2PV2Gii4Q==",
   "success": true,
-  "projectFilePath": "G:\\3 Pillars Task\\Address-book-BE.solution\\Address-Book.Core\\Address-Book.Core.csproj",
+  "projectFilePath": "G:\\3 Pillars Task\\Address-Book-BE\\Address-Book.Core\\Address-Book.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.25\\microsoft.aspnetcore.cryptography.internal.6.0.25.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.25\\microsoft.aspnetcore.cryptography.keyderivation.6.0.25.nupkg.sha512",

@@ -2107,11 +2107,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\3 Pillars Task\\Address-book-BE.solution\\Address-Book.Repository\\Address-Book.Repository.csproj",
+      "projectUniqueName": "G:\\3 Pillars Task\\Address-Book-BE\\Address-Book.Repository\\Address-Book.Repository.csproj",
       "projectName": "Address-Book.Repository",
-      "projectPath": "G:\\3 Pillars Task\\Address-book-BE.solution\\Address-Book.Repository\\Address-Book.Repository.csproj",
+      "projectPath": "G:\\3 Pillars Task\\Address-Book-BE\\Address-Book.Repository\\Address-Book.Repository.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "G:\\3 Pillars Task\\Address-book-BE.solution\\Address-Book.Repository\\obj\\",
+      "outputPath": "G:\\3 Pillars Task\\Address-Book-BE\\Address-Book.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2128,8 +2128,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "G:\\3 Pillars Task\\Address-book-BE.solution\\Address-Book.Core\\Address-Book.Core.csproj": {
-              "projectPath": "G:\\3 Pillars Task\\Address-book-BE.solution\\Address-Book.Core\\Address-Book.Core.csproj"
+            "G:\\3 Pillars Task\\Address-Book-BE\\Address-Book.Core\\Address-Book.Core.csproj": {
+              "projectPath": "G:\\3 Pillars Task\\Address-Book-BE\\Address-Book.Core\\Address-Book.Core.csproj"
             }
           }
         }

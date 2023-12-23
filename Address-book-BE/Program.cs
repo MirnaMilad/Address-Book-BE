@@ -1,7 +1,10 @@
 using Address_Book.Core.Entities;
+using Address_Book.Core.Repositories;
+using Address_Book.Repository;
 using Address_Book.Repository.Data;
 using Address_Book.Repository.Identity;
 using Address_book_BE.Extensions;
+using Address_book_BE.Helpers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -39,7 +42,10 @@ namespace Address_book_BE
                                       .AllowAnyMethod()
                                       .AllowCredentials());
             });
-
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            builder.Services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
+            //builder.Services.AddScoped<IGenericRepository<Entry>, GenericRepository<Entry>>();
+            builder.Services.AddAutoMapper(typeof(MappingProfiles));
             builder.Services.AddIdentityServices(builder.Configuration);
             #endregion
 
@@ -53,11 +59,16 @@ namespace Address_book_BE
             {
                 var dbContext = services.GetRequiredService<StoreContext>();
                 await dbContext.Database.MigrateAsync();
+            #region Data Seeding
+                await StoreContextSeed.SeedAsync(dbContext);
+            #endregion
                 var UserManager = services.GetRequiredService<UserManager<AppUser>>();
                 var IdentityDbContext = services.GetRequiredService<AppIdentityDbContext>();
                 await IdentityDbContext.Database.MigrateAsync();
 
             }
+
+
             catch (Exception ex)
             {
                 var logger = loggerFactory.CreateLogger<Program>();
