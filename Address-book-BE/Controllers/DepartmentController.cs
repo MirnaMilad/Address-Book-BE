@@ -1,5 +1,6 @@
 ﻿using Address_Book.Core.Entities;
 using Address_Book.Core.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,7 @@ namespace Address_book_BE.Controllers
         //Get All Entries
         //BaseUrl/api/Departments
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Department>>> GetEntries()
         {
             var Jobs = await _unitOfWork.Repository<Department>().GetAllAsync();
@@ -24,6 +26,7 @@ namespace Address_book_BE.Controllers
         //Create Department
         //BaseUrl/api/Departments
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Entry>> CreateJob([FromBody] Department department)
         {
             await _unitOfWork.Repository<Department>().Add(department);
@@ -35,6 +38,7 @@ namespace Address_book_BE.Controllers
         //Delete Department
         //BaseUrl/api/Departments/id
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<Department>> DeleteJob(int id)
         {
             try
@@ -54,6 +58,23 @@ namespace Address_book_BE.Controllers
                 return NotFound(ex.Message);
             }
 
+        }
+
+        //Update
+        [HttpPut("{id}")]
+        [Authorize]
+        public async Task<IActionResult> UpdateDepartment([FromBody] Department updatedDepartment)
+        {
+            try
+            {
+                await _unitOfWork.Repository<Department>().UpdateAsync(updatedDepartment);
+                await _unitOfWork.CompleteAsync();
+                return Ok(updatedDepartment);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
         }
     }
 }

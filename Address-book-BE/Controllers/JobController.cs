@@ -1,6 +1,7 @@
 ﻿using Address_Book.Core.Entities;
 using Address_Book.Core.Repositories;
 using Address_Book.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,7 @@ namespace Address_book_BE.Controllers
         //Get All Entries
         //BaseUrl/api/Jobs
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Job>>> GetEntries()
         {
             var Jobs = await _unitOfWork.Repository<Job>().GetAllAsync();
@@ -37,6 +39,7 @@ namespace Address_book_BE.Controllers
         //Delete Job
         //BaseUrl/api/Jobs/id
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<Job>> DeleteJob(int id)
         {
             try
@@ -56,6 +59,23 @@ namespace Address_book_BE.Controllers
                 return NotFound(ex.Message);
             }
 
+        }
+
+        //Update
+        [HttpPut("{id}")]
+        [Authorize]
+        public async Task<IActionResult> UpdateDepartment([FromBody] Job updatedJob)
+        {
+            try
+            {
+                await _unitOfWork.Repository<Job>().UpdateAsync(updatedJob);
+                await _unitOfWork.CompleteAsync();
+                return Ok(updatedJob);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using Address_Book.Repository.Data;
 using Address_book_BE.Dtos;
 using Address_book_BE.Errors;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +44,7 @@ namespace Address_book_BE.Controllers
         //Get Entry By Id
         //BaseUrl/api/Entries/Id
         [HttpGet("{Id}")]
+        [Authorize]
         public async Task<ActionResult<Entry>> GetEntryById(int id)
         {
             var Entry = await _unitOfWork.Repository<Entry>().GetByIdAsync(id);
@@ -53,6 +55,7 @@ namespace Address_book_BE.Controllers
         //Create Entry
         //BaseUrl/api/Entries
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Entry>> CreateEntry([FromBody] Entry entry)
         {
             await _unitOfWork.Repository<Entry>().Add(entry);
@@ -64,13 +67,14 @@ namespace Address_book_BE.Controllers
         //Delete Entry
         //BaseUrl/api/Entries/id
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<Entry>> DeleteEntry(int id)
         {
             try
             {
                 await _unitOfWork.Repository<Entry>().Delete(id);
                 await _unitOfWork.CompleteAsync();
-                return Ok("Successfully removed");
+                return Ok( StatusCode(200));
             }
             catch (InvalidOperationException ex)
             {
@@ -83,13 +87,9 @@ namespace Address_book_BE.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateEntry(int id, [FromBody] Entry updatedEntry)
+        [Authorize]
+        public async Task<IActionResult> UpdateEntry([FromBody] Entry updatedEntry)
         {
-            if (id != updatedEntry.Id)
-            {
-                return BadRequest("ID in the request body does not match the ID in the URL.");
-            }
-
             try
             {
                 await _unitOfWork.Repository<Entry>().UpdateAsync(updatedEntry);
