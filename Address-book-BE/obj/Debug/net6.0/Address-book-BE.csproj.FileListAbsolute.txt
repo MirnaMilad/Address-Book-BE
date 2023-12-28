@@ -160,3 +160,4 @@ G:\3 Pillars Task\Address-Book-BE\Address-book-BE\obj\Debug\net6.0\Address-book-
 G:\3 Pillars Task\Address-Book-BE\Address-book-BE\obj\Debug\net6.0\ref\Address-book-BE.dll
 G:\3 Pillars Task\Address-Book-BE\Address-book-BE\bin\Debug\net6.0\AutoMapper.dll
 G:\3 Pillars Task\Address-Book-BE\Address-book-BE\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+G:\3 Pillars Task\Address-Book-BE\Address-book-BE\bin\Debug\net6.0\Address-book-BE.staticwebassets.runtime.json

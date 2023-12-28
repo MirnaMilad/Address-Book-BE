@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Security.Claims;
@@ -28,6 +29,7 @@ namespace Address_book_BE.Controllers
         //Get All Entries
         //BaseUrl/api/Entries
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Entry>>> GetEntries()
         {
             try
@@ -99,6 +101,23 @@ namespace Address_book_BE.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
+
+
+        [HttpGet("search/{keyword}")]
+        [Authorize]
+        public async Task<IActionResult> SearchEntriesAsync(
+         string keyword)
+        {
+            try
+            {
+                var entries = await _unitOfWork.Repository<Entry>().SearchEntriesAsync(keyword);
+                return Ok(entries);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal Server Error");
             }
         }
     }

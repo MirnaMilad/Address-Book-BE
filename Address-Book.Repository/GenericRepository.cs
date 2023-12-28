@@ -22,7 +22,7 @@ namespace Address_Book.Repository
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             if (typeof(T) == typeof(Entry)){
-                return (IEnumerable<T>) await _dbContext.Entries.Include(E=>E.Department).Include(E=>E.Job).ToListAsync();
+                return (IEnumerable<T>) await _dbContext.Entries.Include(E=>E.Department).Include(E=>E.Job).Include(E=>E.Image).ToListAsync();
             }
             else
             {
@@ -101,7 +101,35 @@ namespace Address_Book.Repository
 
             return await query.ToListAsync();
         }
-
-
+        public async Task<IEnumerable<T>> SearchEntriesAsync(string keyword)
+        {
+            if (typeof(T) == typeof(Entry))
+            {
+                return (IEnumerable<T>) await _dbContext.Entries.Include(E => E.Department).Include(E => E.Job).Where(e =>
+                    e.FullName.Contains(keyword) ||
+                    e.Job.Title.Contains(keyword) ||
+                    e.Department.Title.Contains(keyword) ||
+                    e.MobileNumber.Contains(keyword) ||
+                    e.Address.Contains(keyword) ||
+                    e.Email.Contains(keyword)
+                )
+                .ToListAsync();
+            }
+            else if (typeof(T) == typeof(Job))
+            {
+                return (IEnumerable<T>)await _dbContext.Job.Where(e =>
+                   e.Title.Contains(keyword) ||
+                   e.Description.Contains(keyword)
+               ).ToListAsync();
+            }else if (typeof(T) == typeof(Department))
+            {
+                return (IEnumerable<T>)await _dbContext.Departments.Where(e =>
+                   e.Title.Contains(keyword) ||
+                   e.Description.Contains(keyword)
+               ).ToListAsync();
+            }
+            return null;
+        }
     }
+
 }

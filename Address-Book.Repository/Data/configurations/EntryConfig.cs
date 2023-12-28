@@ -24,7 +24,6 @@ namespace Address_Book.Repository.Data.configurations
             builder.Property(E => E.FullName)
                 .IsRequired()
                 .HasMaxLength(50);
-            
 
 
         }

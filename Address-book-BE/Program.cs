@@ -83,6 +83,7 @@ namespace Address_book_BE
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseStaticFiles();
             app.UseCors("AllowOrigin");
             app.UseHttpsRedirection();
             app.UseAuthentication();

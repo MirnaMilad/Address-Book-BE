@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Address_Book.Core.Entities;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,7 @@ namespace Address_Book.Core.Repositories
 
         Task Delete(int id);
         Task UpdateAsync(T entity);
+        Task<IEnumerable<T>> SearchEntriesAsync(string keyword);
+
     }
 }

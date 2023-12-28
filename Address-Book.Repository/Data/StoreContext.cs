@@ -17,5 +17,6 @@ namespace Address_Book.Repository.Data
         public DbSet<Entry> Entries { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Job> Job { get; set; }
+        public DbSet<Image> Images { get; set; }
     }
 }

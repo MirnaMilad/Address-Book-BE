@@ -15,7 +15,7 @@ namespace Address_book_BE.Controllers
         {
             _unitOfWork = unitOfWork;
         }
-        //Get All Entries
+        //Get All Jobs
         //BaseUrl/api/Jobs
         [HttpGet]
         [Authorize]
@@ -28,6 +28,7 @@ namespace Address_book_BE.Controllers
         //Create Job
         //BaseUrl/api/Jobs
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Entry>> CreateJob([FromBody] Job job)
         {
             await _unitOfWork.Repository<Job>().Add(job);
@@ -75,6 +76,22 @@ namespace Address_book_BE.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
+        //Search
+        [HttpGet("search/{keyword}")]
+        [Authorize]
+        public async Task<IActionResult> SearchEntriesAsync(
+         string keyword)
+        {
+            try
+            {
+                var Jobs = await _unitOfWork.Repository<Job>().SearchEntriesAsync(keyword);
+                return Ok(Jobs);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal Server Error");
             }
         }
     }

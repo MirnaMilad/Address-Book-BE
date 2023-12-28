@@ -14,11 +14,11 @@ namespace Address_book_BE.Controllers
         {
             _unitOfWork = unitOfWork;
         }
-        //Get All Entries
+        //Get All Departments
         //BaseUrl/api/Departments
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<Department>>> GetEntries()
+        public async Task<ActionResult<IEnumerable<Department>>> GetDepartments()
         {
             var Jobs = await _unitOfWork.Repository<Department>().GetAllAsync();
             return Ok(Jobs);
@@ -27,7 +27,7 @@ namespace Address_book_BE.Controllers
         //BaseUrl/api/Departments
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<Entry>> CreateJob([FromBody] Department department)
+        public async Task<ActionResult<Entry>> CreateDepartment([FromBody] Department department)
         {
             await _unitOfWork.Repository<Department>().Add(department);
             await _unitOfWork.CompleteAsync();
@@ -39,7 +39,7 @@ namespace Address_book_BE.Controllers
         //BaseUrl/api/Departments/id
         [HttpDelete("{id}")]
         [Authorize]
-        public async Task<ActionResult<Department>> DeleteJob(int id)
+        public async Task<ActionResult<Department>> DeleteDepartment(int id)
         {
             try
             {
@@ -74,6 +74,22 @@ namespace Address_book_BE.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
+
+        [HttpGet("search/{keyword}")]
+        [Authorize]
+        public async Task<IActionResult> SearchEntriesAsync(
+         string keyword)
+        {
+            try
+            {
+                var Departments = await _unitOfWork.Repository<Department>().SearchEntriesAsync(keyword);
+                return Ok(Departments);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal Server Error");
             }
         }
     }

@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "p4KpSSN92OyCNwEx5g3j6RqaVrMDngyn9LHvaCoSb3Y=",
+  "Hash": "aFIsZdngFeFJbCKW+czLmV2RNY5mSFXhzfDT4URtqtE=",
   "Source": "Address-book-BE",
   "BasePath": "_content/Address-book-BE",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Address-book-BE\\wwwroot",
+      "Source": "Address-book-BE",
+      "ContentRoot": "G:\\3 Pillars Task\\Address-Book-BE\\Address-book-BE\\wwwroot\\",
+      "BasePath": "_content/Address-book-BE",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }
