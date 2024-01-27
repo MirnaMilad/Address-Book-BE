@@ -51,7 +51,7 @@ namespace Address_book_BE.Controllers
                     entry.DepartmentId = null;
                 }
                 await _unitOfWork.CompleteAsync();
-                return Ok("Successfully removed");
+                return Ok(StatusCode(200));
             }
             catch (InvalidOperationException ex)
             {

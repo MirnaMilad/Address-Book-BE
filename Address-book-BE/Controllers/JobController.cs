@@ -53,7 +53,7 @@ namespace Address_book_BE.Controllers
                     entry.JobId = null;
                 }
                 await _unitOfWork.CompleteAsync();
-                return Ok("Successfully removed");
+                return Ok(StatusCode(200));
             }
             catch (InvalidOperationException ex)
             {
